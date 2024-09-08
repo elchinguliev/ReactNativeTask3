@@ -5,10 +5,26 @@ const LoginPage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
 
-  const handleLogin = () => {
-    // Logging the form data to the console
-    console.log("Name:", name);
-    console.log("Email:", email);
+  const handleLogin = async () => {
+    try {
+      // Simulating a login process
+      if (!name || !email) {
+        throw new Error('Name and email are required!');
+      }
+      
+      // If login is successful (simulated success)
+      console.log("Login successful!",name,email);
+      Alert.alert("Success", "You have logged in successfully!");
+      
+    } catch (error) {
+      // Handle any error during login
+      console.log("Login failed!", error);
+      Alert.alert("Error");
+      
+    } finally {
+      // Process finished
+      Alert.alert("Process Complete", "The login process has finished.");
+    }
   };
 
   return (
